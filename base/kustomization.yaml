@@ -1,11 +1,11 @@
 resources:
   - backend-deploy.yaml
   - backend-svc.yaml
-  - frontend-deploy.yaml
-  - frontend-svc.yaml
+  # - frontend-deploy.yaml
+  # - frontend-svc.yaml
 
 images:
   - name: beming/spring-backend
     newTag: placeholder-backend
-  - name: beming/react-frontend
-    newTag: placeholder-frontend
+  # - name: beming/react-frontend
+    # newTag: placeholder-frontend
