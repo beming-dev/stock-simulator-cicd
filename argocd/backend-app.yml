@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/beming-dev/infra-repo.git
+    repoURL: https://github.com/beming-dev/stock-simulator-cicd.git
     path: overlays/production
     targetRevision: main
   destination:

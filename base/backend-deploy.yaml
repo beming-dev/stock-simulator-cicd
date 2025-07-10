@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-backend
+  labels:
+    app: spring-backend
+spec:
+  replicas: 1  # base에서는 1로 두고, overlays에서 프로덕션/스테이징 복제 수 조정
+  selector:
+    matchLabels:
+      app: spring-backend
+  template:
+    metadata:
+      labels:
+        app: spring-backend
+    spec:
+      containers:
+        - name: spring-backend
+          # CI에서 placeholder-backend를 실제 SHA/tag로 교체합니다
+          image: beming/stock-simulator-back:placeholder-backend
+          ports:
+            - containerPort: 8080
+              name: http
+          # 선택: 헬스체크
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          # 선택: 리소스 요청·제한
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# 1) 공통 리소스(base)를 import
+resources:
+  - ../../base
+
+# 2) 프로덕션 전용 패치 파일들
+patchesStrategicMerge:
+  - patches/backend-replicas.yaml
+  - patches/backend-env.yaml
+  - patches/frontend-env.yaml
+
+# (선택) 환경별 이미지 태그 override
+# images:
+#   - name: mydockerhubuser/spring-backend
+#     newTag: prod-latest
+#   - name: mydockerhubuser/react-frontend
+#     newTag: prod-latest
+
+# (선택) 프로덕션 전용 ConfigMap 생성
+# configMapGenerator:
+#   - name: prod-common-config
+#     literals:
+#       - LOG_LEVEL=ERROR
