@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-backend
+spec:
+  template:
+    spec:
+      containers:
+        - name: spring-backend
+          # 프로덕션용 프로파일 활성화
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: production
+          # 리소스 요청/제한 설정 (예시)
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+
