@@ -5,6 +5,11 @@ resources:
   # - frontend-deploy.yaml
   # - frontend-svc.yaml
 
+secretGenerator:
+  - name: backend-env
+    envs:
+      - ../overlays/production/secret.env
+
 images:
   - name: beming/spring-backend
     newTag: placeholder-backend

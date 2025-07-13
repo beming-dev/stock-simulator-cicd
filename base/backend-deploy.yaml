@@ -5,7 +5,7 @@ metadata:
   labels:
     app: spring-backend
 spec:
-  replicas: 1  # base에서는 1로 두고, overlays에서 프로덕션/스테이징 복제 수 조정
+  replicas: 1 # base에서는 1로 두고, overlays에서 프로덕션/스테이징 복제 수 조정
   selector:
     matchLabels:
       app: spring-backend
@@ -18,6 +18,9 @@ spec:
         - name: spring-backend
           # CI에서 placeholder-backend를 실제 SHA/tag로 교체합니다
           image: beming/stock-simulator-back:placeholder-backend
+          envFrom:
+            - secretRef:
+                name: backend-env
           ports:
             - containerPort: 8080
               name: http
