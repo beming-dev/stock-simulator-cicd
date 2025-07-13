@@ -22,7 +22,7 @@ spec:
             - secretRef:
                 name: backend-env
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
               name: http
           # 선택: 헬스체크
           readinessProbe:

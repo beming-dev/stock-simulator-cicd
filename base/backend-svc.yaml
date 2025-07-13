@@ -10,5 +10,5 @@ spec:
     app: spring-backend
   ports:
     - name: http
-      port: 80         # 클러스터 내부에서 호출할 포트
-      targetPort: 8080 # Deployment의 containerPort와 매핑
+      port: 80 # 클러스터 내부에서 호출할 포트
+      targetPort: 3000 # Deployment의 containerPort와 매핑
