@@ -4,6 +4,7 @@ kind: Kustomization
 # 1) 공통 리소스(base)를 import
 resources:
   - ../../base
+  - sealedsecret-backend-env.yaml
 
 # 2) 프로덕션 전용 패치 파일들
 patches:
