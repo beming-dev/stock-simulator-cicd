@@ -29,14 +29,14 @@ spec:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 10
-            periodSeconds: 5
+            initialDelaySeconds: 20
+            periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 30
-            periodSeconds: 10
+            initialDelaySeconds: 60
+            periodSeconds: 20
           # 선택: 리소스 요청·제한
           resources:
             requests:
