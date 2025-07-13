@@ -6,7 +6,7 @@ resources:
   # - frontend-svc.yaml
 
 images:
-  - name: beming/spring-backend
+  - name: beming/stock-simulator-back
     newTag: placeholder-backend
   # - name: beming/react-frontend
   # newTag: placeholder-frontend
