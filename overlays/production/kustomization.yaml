@@ -6,11 +6,19 @@ resources:
   - ../../base
 
 # 2) 프로덕션 전용 패치 파일들
-patchesStrategicMerge:
-  - patches/backend-replicas.yaml
-  - patches/backend-env.yaml
-  - patches/frontend-env.yaml
-
+patches:
+  - path: patches/backend-replicas.yaml
+    target:
+      kind: Deployment
+      name: backend
+  - path: patches/backend-env.yaml
+    target:
+      kind: Deployment
+      name: backend
+  # - path: patches/frontend-env.yaml
+  #   target:
+  #     kind: Deployment
+  #     name: frontend
 # (선택) 환경별 이미지 태그 override
 # images:
 #   - name: mydockerhubuser/spring-backend
