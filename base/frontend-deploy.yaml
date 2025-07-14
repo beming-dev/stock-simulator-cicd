@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-frontend
+  labels:
+    app: spring-frontend
+spec:
+  replicas: 1 # base에서는 1로 두고, overlays에서 프로덕션/스테이징 복제 수 조정
+  selector:
+    matchLabels:
+      app: spring-frontend
+  template:
+    metadata:
+      labels:
+        app: spring-frontend
+    spec:
+      containers:
+        - name: spring-frontend
+          # CI에서 placeholder-backend를 실제 SHA/tag로 교체합니다
+          image: beming/stock-simulator-front:placeholder-frontend
+          envFrom:
+            - secretRef:
+                name: frontend-env
+          ports:
+            - containerPort: 3000
+              name: http
+          # 선택: 리소스 요청·제한
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

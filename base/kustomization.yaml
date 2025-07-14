@@ -1,13 +1,16 @@
 resources:
 - backend-deploy.yaml
 - backend-svc.yaml
-- namespace.yaml
-  # - frontend-deploy.yaml
-  # - frontend-svc.yaml
+- namespace-backend.yaml
+- frontend-deploy.yaml
+- frontend-svc.yaml
+- namespace-frontend.yaml
 
 images:
 - name: beming/stock-simulator-back
-  newName: beming/stock-simulator-back
-  newTag: fe3d83b85987d3bc8104a2da8b8912980f673f25
+  newTag: placeholder-backend
+- name: beming/stock-simulator-front
+  newTag: placeholder-frontend
+
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization

@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../../base
   - sealedsecret-backend-env.yaml
+  - sealedsecret-frontend-env.yaml
 
 # 2) 프로덕션 전용 패치 파일들
 patches:
@@ -16,6 +17,14 @@ patches:
     target:
       kind: Deployment
       name: backend
+  - path: patches/frontend-replicas.yaml
+    target:
+      kind: Deployment
+      name: frontend
+  - path: patches/frontend-env.yaml
+    target:
+      kind: Deployment
+      name: frontend
   # - path: patches/frontend-env.yaml
   #   target:
   #     kind: Deployment

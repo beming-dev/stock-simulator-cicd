@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-frontend # base/backend-deploy.yaml 의 metadata.name 과 반드시 일치
+spec:
+  template:
+    metadata:
+      # (선택) 프로덕션 환경을 나타내는 라벨 추가
+      labels:
+        environment: production
+    spec:
+      containers:
+        - name: spring-frontend # base 의 container name 과 일치
+          # 1) 프로덕션 프로파일 활성화를 위한 환경변수
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: production
+            - name: JAVA_OPTS
+              value: "-Xms512m -Xmx1g"
+          # 2) 리소스 요청(requests) / 제한(limits)
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
