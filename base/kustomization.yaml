@@ -9,6 +9,6 @@ images:
   - name: beming/stock-simulator-back
     newTag: placeholder-backend
   - name: beming/stock-simulator-front
-    newTag: 2c4cf89a7e64a32b045af96260e5b2175493436f
+    newTag: 948923617e9695ccf19fd084e2e5f04a18d9a654
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
