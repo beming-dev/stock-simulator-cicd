@@ -2,5 +2,8 @@ resources:
   - frontend-deploy.yaml
   - frontend-svc.yaml
   - namespace-frontend.yaml
+images:
+  - name: beming/stock-simulator-back
+    newTag: placeholder-backend
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
