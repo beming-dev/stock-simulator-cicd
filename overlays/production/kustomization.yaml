@@ -3,7 +3,8 @@ kind: Kustomization
 
 # 1) 공통 리소스(base)를 import
 resources:
-  - ../../base
+  - ../../base/backend
+  - ../../base/frontend
   - sealedsecret-backend-env.yaml
   - sealedsecret-frontend-env.yaml
 

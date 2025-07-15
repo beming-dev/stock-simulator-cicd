@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/beming-dev/stock-simulator-cicd.git
-    path: overlays/production
+    path: overlays/production/backend
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
