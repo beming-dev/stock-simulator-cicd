@@ -1,27 +1,20 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
 metadata:
-  name: spring-frontend # base/backend-deploy.yaml 의 metadata.name 과 반드시 일치
+  creationTimestamp: null
+  name: frontend-env
+  namespace: frontend-namespace
 spec:
+  encryptedData:
+    GOOGLE_ID: AgAY5JitZTBekW+0ZC2hwGl32gxyCOM080QdVgyGh56bQPRZJt0dnZfFxOoeJd3EQUcc6XfQr5qP3IyJXOdynymILe6Mcr5kE0m3BojblnlrD8b8jurL3whVd3IkTgcxuxFTqrWQjsLxhFysl3OTW4/BkXtDzzZ/NagLj4ZcBSraAOHuV/NGDprmAD7x82TPPLf82qFv4Az43RhpXAGk98h14c2rlXS+H7NKkiHq/POqaP2AJYU6AdkuAyNznaLGLVSL70YH6v2WmnCiAFL3fOPzQ+x8TT085zJ4BvlRVK8PLkNw4AaxiRnCSI6HaIz0pZ/DZ1edUZ34CHPJdYhxAmZOC7a5mqAjWSfVOFezpqteRYPKeXcAJE7Kze44kg6pZRZo9NstfBtTG6LhBiA/gx8CUjTXkLH6Zb7bRkEoWNr85qLOKsTgRE6rES3SJE6IRHCQxwPL7914MugiNqs7qmYllyC1ac9Pk9NsZ2MYBFkKymG5sV0v59Sd2CMLnwPPUL4X47FiVf0QhwUbYeh2Rv7NqMYRyxR0yI9ANLSmDIu9XbNGeyfWHNPiivOUP5A9yGPNTe+dbjHuUpELKOkBF0KILOEg+j5OsA4VRWezZt87pjOnmoetdGb6Smtl/97yGcioLTDWPLDuD08NLTmM922pFUr0YezDZ/3L5opBL+6FqQATVmOcIh9LKmrgBaqD1Mol6NsjpBbq6a1nAbZvxSygRbFW90Lwnmsxag9+XuC42fB3TzIfWJ8MXoFe1yu5Oq99lVN+HDLfH2e2qQw2VIi5evjxNp8SML0=
+    GOOGLE_SECRET: AgDGBujMEIL1wcAnpb7DxvKBfKgjNe9/aIopbLC8VWkwdI2YoqKl/Mcq53Q9b6O7vzEg81vdJHWF2qd9HACdIIPdkygBt6F6EsXpSDBM+ZhR5MEMEBmrnvb/3hceUg25rIfCthgfjSjmjWKAdH2fr41d83hISgYZrSKFWfrAVlO7WWFUaJOqS8jzWrTyCb9SDh9efs2p9rPRJTfZ1D2csFlu30vXK01cFBtB2FoXeUdHAMMRdbdPC59WcdWTOM6XcPYC3FcfAmTfJEzFsREI+dCpA+KXx/bSWA5VXDUT5S3UmAN21BzSvoZoXSciAH//2V6NPCxhHDQQo4Elt/11TuuIXqtV+7YnBn6PVROwfIFbZw8rbdBRzQ4ruOuoUBjC4C2ZwkV8iWeRs0dr/IliE/XMq8Byfl0aTONotzYKeecYVZmr4+ua9Bv2vtKBB8RoKvtkm0iIzJyyTGlo13k0X+hdfzJemKM7+XCW0h3rPEYF0Af8/U9QvacZYbQXI86w4Fvlxu+CDpnndp/+7SfYaogu6gw/2PPb7A43mnB+B73f7kijK3/ldHm3lALSxSQpdPQsha+5JS49B9xmah+aF07OfjFel8PZQdITiL1G0EVyZLqJcQqvqYVHRZtaqcQQrNZt/u/wrS7ljN5HeMOxswFSPHelHAX4+EPkkXk1CgU/wlu08VQAobGX4c0nBcP4TdlczmEAm2oEpXbbdYyD6Lq6sTzIwFfyq3egYprUIazRloRZEw==
+    VITE_BACK_BASE_URL: AgAv67zcPr2/LZMKslWffQOBMZhmhNc4YncKIsFvuqZEUwpisaOKo3JEBlnA501anw6Iaa2UJ9Ju71lq0ve1+JnoGVrdwlwhHSGBNpYMbGze4ZfPCKZhzcCshtZWZFq/4d2DNhM4VRQMW+JDPu9lJKgIc+u5JTjHDN/B+NKd7+77sfXu3STbT0IP79b3BsWhFeDddDV0HxKN8KZrg+hvCG8YXfwUpcL/PnmuFLKG3qs7CpR7KU8WpOSwo7WtemwLD213K5tRyOYyg9EYyabr0OkgFtmwsq36pI8CeLu0z+FPcuCuZEQ8Oyn3g4kXt3lM6wkci+bpnnT3jmifjd688yz/hxuRKC3l7O+GTqiISwrFxfCSkb8H4wWLdorUpoAbd4IJKl0rOWoLyPK7TeBZz73WhlyTsC3NFxlGjC1/Nsm85NtkXWG5obi/GSpKnfjwNDDeFT8m3DrJuJBIkmj0fQMVVgvYjsYcxCC4dMrYsHodZe+QAQDdMkdAmBf5YIKpv566bKdCL6x35lqWTriCHkYZNIaU4Itz6ioTaRnalC8YWg9yaL4TbF3GItR8y/oCe5eUzQ9srlVqFWSM2nbvWKO5YQpmV1ECt2I1qpozdRsYFEzVadYk49l1iYeo6JDPb6ht0VMJm7DG7AbRAtlh1ZMrEnyir5ZT6hQqub4ep6wItvuodzp6puZ3qJsM1roSFfbMuvhXqExEbrR+ykGmha4NmL0FThk=
+    VITE_FRONT_BASE_URL: AgCJmbKI3cPtVkv8nwXRFXSrVksyDN48M3DtLWEO3knmza5KjpucC6ICxPkbL/09p9ZraerrsygVD/KbdF9na5y7jBQOq7lSXSNOBhyUvD+AD8qzx02SDvJFOayzK6IW2s9Di2hN1TmcYzI2gjCAXS60EZnFPUXprbOh0GWnZVv8HVApiF1a3Tmeb/QDGAy8ruzrj5si/xWb10e9hGi4WVim83Li/UJzewzxej9ju0jL62R83/Jgim0YuN3Y6HL0OJPNMXG2WmaivKmuBQ+J1rmKQqi3kbTQ7dTUTKUDostxY8yMZE2Wf2irdx+E4bg1bamjdhozIX0ugv/iIxS26YxXJpNsqvC+rrQg1C6GNQoV/Bd6QfcuB2E9nm2M+DSUrbWHRWtRboqmIFNpm8598yuBhfBnlyU9zIozmmjnot5L2psM9TStqaaFbTDEjIi1M64FISy6lwi9VvCXsch1xacJ1+kptdiQOjvIZvjT6D4JCxQBrs9btLyviAiZLHxnludnysogULkUUJgRIjonQBvCz6W6svosQ20aEE5XMWY0S3XKHJ751pw0udzOsc02IeZrLMWDGC4u6smhxoze/QT/cLLXZcDoCO+Wzj+cNw+QJYbJHhFgym7jBXOzlnasmuZGMIDXgvaOtIRC//R2MIsejGG8nEXnc7zys1yW6nGsR+aboWu/bM2u9c2n60ccLANfdyZbZrkcDpCzxw1wUBfhQVrieqw=
+    VITE_GOOGLE_CLIENT_ID: AgCMcEHKxrTJg4/y1FDus8q8/E1fhqbj/dbo+CLBkaQTcxKFYWR1V/8RYeqVXYezozMGiC1jUKZ6tgnI7v2GqYWOEEBWVHfOjlEd05l1bUejgL28rNAqytNcU7gO/XrGe3dtTsykN3bAC2L4eGH1Dlqgo4XPHcKo7RON7s/REUDCK0Fhm4qDs61wxnJOmu12cr7cjjK7vPaOi1i6n6PVGRbBXscoT5f4R2myY2aFq7PT5PYtVzguemdy6AaQ+CiOkfMrvnU4So7JfijtBBk3BGuYG+yCkZnUawd35X8J/NeGLkzcRgBUb07s1v4JG0PK2nL2TIBDc1tPZuw/r8u6HiKuQr96Hek3ASJ+IiSxSaeOvjdWhf3laMwgr0zeZJNp5K8dMiHvzQXgGO5zYUqXJTL4Uhyy2ou6vB1f0de/jJ50l81WMf4/kt2sf616vj0G7a59EtcKOHs0JpBCzbIAZTJ79XKT003uhgNkhX/3bbLKD1eMoLQ/LHINA4GVpmAdi1Ez7UnpUS0YLXQLmJJRakrsrMCUKQJFW+LOzRFhBhR1rNX5JCkayx5iW1yor+WoPpsmcyONTNooDHvHNoSxaoLzYfMMiwD68ZZsiG04CHXCJHU/BnlHn8uhxPkXa37b6fgnr8aM2QXkNXM2R8V42sc9NDvrd/unbkvtHQyksrW87XOSMiFltb2OldQ/cpFdIt24R2cSAiv9yCqx1oup14owp4AAJ9xHMG08lAgvaXwvkLGSH6U1rQ+YeiRj6RtTNNw8TQYeiV6+MYh//fEvOEOUmiVLPPcsBYM=
+    VITE_SOCKET_URL: AgAKQQvfLyT+o83KsFgwyPxl3WKg/LdWyye6ZojjSFa4LMU2qZmx0MCDjOHLts1w5UV94Gvl4GjOMDZZMaZH85/MjgA4TFaBH7G+n02i8eCLUJOok1BtZwKNraH08JsEpj+m5xxmarx619IzHPC1jg20vDRIzfCm/cGFESK9J4Eo1qPbfkECh+TqvABvk1D0W51Tns4Wjjz64dTKqdI51TmpMZ7Y/60l9ocad9iMUB6APtJFRWZ1o333Ci+CETLeF9GIilYioPw4wL0i/1S3uXvCvEwKMNSQHKsP6et8TJ5xPBM8cptDD5L7CicAxDWxfQWc2tS1/ScaDK4odzxqF1RoTIxC58RiTfKkhriaKgilscJQ7Opc90hmVrzTDdnCtwh3dbljjoH2CPkPO5mU86e1bMDq7+NruCO5vBzOGX03eQ5ur2mtOPIiN5I+bTOypLenRLtFwGnfGpSYHizT41L9jfeVeAv7GL+DCcrG8wabkG2ShdtpyDVV6zw51lF0j3P5kZin390fHyV4RbIhw1ZCvqrG3ocb6fdCCv2jPGgQNxQNltMpkosAGXnGsgv9829f1R3HvwgFQz3RDDq5bzH3xLJiq70/geMlz3fv1yqYRTZfEApsN1dNsv+IXjSNFBob8p4kegrCxIyejlOnFgE+4S0B5JfFt1sY5S5JKmOOuzXC3W+8bVYBH+kjFutAERUaMTREL5AuCCYO9tAAix1N1QkPXshj
   template:
     metadata:
-      # (선택) 프로덕션 환경을 나타내는 라벨 추가
-      labels:
-        environment: production
-    spec:
-      containers:
-        - name: spring-frontend # base 의 container name 과 일치
-          # 1) 프로덕션 프로파일 활성화를 위한 환경변수
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production
-            - name: JAVA_OPTS
-              value: "-Xms512m -Xmx1g"
-          # 2) 리소스 요청(requests) / 제한(limits)
-          resources:
-            requests:
-              cpu: "300m"
-              memory: "256Mi"
-            limits:
-              cpu: "1"
-              memory: "1Gi"
+      creationTimestamp: null
+      name: frontend-env
+      namespace: frontend-namespace
