@@ -4,11 +4,11 @@ resources:
   - ../../../base/backend
   - sealedsecret-backend-env.yaml
 patches:
-  - path: ../patches/backend-replicas.yaml
+  - path: backend-replicas.yaml
     target:
       kind: Deployment
       name: spring-backend
-  - path: ../patches/backend-env.yaml
+  - path: backend-env.yaml
     target:
       kind: Deployment
       name: spring-backend

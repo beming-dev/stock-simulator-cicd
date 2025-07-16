@@ -4,11 +4,11 @@ resources:
   - ../../../base/frontend
   - sealedsecret-frontend-env.yaml
 patches:
-  - path: ../patches/frontend-replicas.yaml
+  - path: frontend-replicas.yaml
     target:
       kind: Deployment
       name: spring-frontend
-  - path: ../patches/frontend-env.yaml
+  - path: frontend-env.yaml
     target:
       kind: Deployment
       name: spring-frontend
