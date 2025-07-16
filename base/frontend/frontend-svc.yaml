@@ -9,5 +9,5 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 3001
+      targetPort: 5173
       nodePort: 30081
