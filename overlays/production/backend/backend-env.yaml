@@ -20,8 +20,8 @@ spec:
           # 2) 리소스 요청(requests) / 제한(limits)
           resources:
             requests:
-              cpu: "500m"
-              memory: "512Mi"
+              cpu: "300m"
+              memory: "256Mi"
             limits:
               cpu: "1"
               memory: "1Gi"

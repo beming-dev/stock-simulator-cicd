@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: spring-frontend # base/backend-deploy.yaml 에 정의된 Deployment 이름과 동일해야 합니다
 spec:
-  replicas: 3 # 프로덕션에서 원하는 복제본 수
+  replicas: 2 # 프로덕션에서 원하는 복제본 수
