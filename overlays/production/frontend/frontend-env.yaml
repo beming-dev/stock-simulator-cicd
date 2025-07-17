@@ -15,6 +15,23 @@ spec:
     VITE_SOCKET_URL: AgAKQQvfLyT+o83KsFgwyPxl3WKg/LdWyye6ZojjSFa4LMU2qZmx0MCDjOHLts1w5UV94Gvl4GjOMDZZMaZH85/MjgA4TFaBH7G+n02i8eCLUJOok1BtZwKNraH08JsEpj+m5xxmarx619IzHPC1jg20vDRIzfCm/cGFESK9J4Eo1qPbfkECh+TqvABvk1D0W51Tns4Wjjz64dTKqdI51TmpMZ7Y/60l9ocad9iMUB6APtJFRWZ1o333Ci+CETLeF9GIilYioPw4wL0i/1S3uXvCvEwKMNSQHKsP6et8TJ5xPBM8cptDD5L7CicAxDWxfQWc2tS1/ScaDK4odzxqF1RoTIxC58RiTfKkhriaKgilscJQ7Opc90hmVrzTDdnCtwh3dbljjoH2CPkPO5mU86e1bMDq7+NruCO5vBzOGX03eQ5ur2mtOPIiN5I+bTOypLenRLtFwGnfGpSYHizT41L9jfeVeAv7GL+DCcrG8wabkG2ShdtpyDVV6zw51lF0j3P5kZin390fHyV4RbIhw1ZCvqrG3ocb6fdCCv2jPGgQNxQNltMpkosAGXnGsgv9829f1R3HvwgFQz3RDDq5bzH3xLJiq70/geMlz3fv1yqYRTZfEApsN1dNsv+IXjSNFBob8p4kegrCxIyejlOnFgE+4S0B5JfFt1sY5S5JKmOOuzXC3W+8bVYBH+kjFutAERUaMTREL5AuCCYO9tAAix1N1QkPXshj
   template:
     metadata:
-      creationTimestamp: null
-      name: frontend-env
-      namespace: frontend-namespace
+      # (선택) 프로덕션 환경을 나타내는 라벨 추가
+      labels:
+        environment: production
+    spec:
+      containers:
+        - name: spring-frontend # base 의 container name 과 일치
+          # 1) 프로덕션 프로파일 활성화를 위한 환경변수
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: production
+            - name: JAVA_OPTS
+              value: "-Xms512m -Xmx1g"
+          # 2) 리소스 요청(requests) / 제한(limits)
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
