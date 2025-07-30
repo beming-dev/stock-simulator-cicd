@@ -4,6 +4,6 @@ resources:
   - namespace-frontend.yaml
 images:
   - name: beming/stock-simulator-front
-    newTag: 48d0c7ec9abf0f3dd664c35456bc1274c42dcfb3
+    newTag: cd6f504a2908acb4ba08bd68c9a9774d905bc7a3
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
