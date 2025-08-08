@@ -4,6 +4,6 @@ resources:
   - namespace-backend.yaml
 images:
   - name: beming/stock-simulator-back
-    newTag: 0c1c753670abdd8a11d50b8d4807d82b577593f3
+    newTag: 2c28ebdc6b723b470a3896ebd63bd1116b678860
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
